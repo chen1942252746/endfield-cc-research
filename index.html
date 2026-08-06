@@ -1,76 +1,62 @@
 <!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>终末地 CC 活动多平台曝光调研</title><style>
 
-/* ───── MOBILE FIRST FIXES ───── */
 @media(max-width:900px){
-  html,body{overflow-x:hidden}
-  body{padding:6px;font-size:13px}
-  .c{max-width:100%!important;padding:0}
-  .header{padding:16px 10px;border-radius:10px;margin-bottom:12px}
-  .header h1{font-size:1.2em}
-  .header p{font-size:.78em}
-  .card{padding:12px 10px;border-radius:8px;margin-bottom:12px}
-  .card h2{font-size:1em;margin-bottom:8px}
-  .card h3{font-size:.9em;margin:12px 0 6px}
+  body{padding:10px;font-size:14px}
+  .c{max-width:100%}
+  .header{padding:24px 14px;border-radius:12px}
+  .header h1{font-size:1.4em}
+  .header p{font-size:.85em}
+  .card{padding:16px 14px;margin-bottom:16px;border-radius:10px}
+  .card h2{font-size:1.1em}
+  .card h3{font-size:.95em}
 
-  /* Overview cards: 2 columns, compact */
-  .summary-grid{grid-template-columns:1fr 1fr;gap:6px}
-  .metric-card{padding:8px 6px;border-radius:8px}
-  .metric-card .num{font-size:1.3em}
-  .metric-card .lbl{font-size:.73em;margin-top:2px}
-  .metric-card div[style]{font-size:.65em!important;margin-top:2px!important}
+  /* Overview: 3 per row, compact */
+  .summary-grid{grid-template-columns:repeat(3,1fr);gap:8px}
+  .metric-card{padding:10px 8px;border-radius:10px}
+  .metric-card .num{font-size:1.5em}
+  .metric-card .lbl{font-size:.78em}
+  .metric-card div[style]{font-size:.68em!important}
 
-  /* Tables */
-  table{font-size:.75em;min-width:550px}
-  th,td{padding:5px 7px}
+  /* Tables - scrollable wrapper */
+  .card{overflow-x:auto}
+  table{font-size:.82em;min-width:100%}
+  th,td{padding:7px 8px}
 
   /* TIMELINE */
-  .timeline{margin:8px 0!important;padding-left:0!important;border-left:none!important}
-  .phase{display:block!important;position:relative;padding-left:24px;margin-bottom:20px}
-  .phase::before{content:'';position:absolute;left:0;top:3px;width:12px;height:12px;border-radius:50%}
-  .phase-pre::before{background:rgba(107,203,255,.3);border:3px solid #6bcbff}
-  .phase-dur::before{background:rgba(255,107,107,.3);border:3px solid #ff6b6b}
-  .phase-post::before{background:rgba(107,255,150,.3);border:3px solid #6bff96}
-  .phase-label{position:static!important;text-align:left!important;padding:0!important;width:auto!important;margin:0 0 6px 0}
-  .phase-label .name{font-size:1.05em;display:inline}
-  .phase-label .period{display:inline;margin-left:6px;font-size:.78em}
-  .phase-label .badge{display:inline-block;margin-left:6px;font-size:.68em}
-  .phase-content{padding:10px!important;border-left:3px solid #333!important;border-radius:8px;margin:0}
-  .ms-item{flex-direction:column;gap:2px;padding:5px 0;font-size:.8em}
-  .ms-date{font-size:.75em;min-width:auto}
-  .ms-tag{align-self:flex-start}
+  .timeline{border-left:none!important;padding-left:0!important;margin:10px 0!important}
+  .phase{grid-template-columns:1fr!important;gap:0!important;margin-bottom:22px}
+  .phase-label{text-align:left!important;padding:0 0 6px 24px!important;position:relative!important}
+  .phase-label .name{font-size:1.15em}
+  .phase-label .period{font-size:.82em}
+  .phase::before{left:4px!important;top:8px!important}
+  .phase-content{padding:14px!important;border-left:3px solid #333!important;border-radius:8px}
 
-  /* KOL & summary */
-  .kol-grid{grid-template-columns:1fr;gap:8px}
-  .kol-card{padding:10px}
-  .summary-row{grid-template-columns:1fr;gap:8px}
-  .sbox{padding:10px 12px;font-size:.82em}
+  .ms-item{flex-wrap:wrap;gap:4px;padding:6px 0;font-size:.85em}
+  .ms-date{min-width:auto;font-size:.78em}
+  .ms-detail{font-size:.78em}
+
+  .kol-grid{grid-template-columns:1fr}
+  .summary-row{grid-template-columns:1fr;gap:10px}
   .pgrid{grid-template-columns:1fr}
 
-  /* Expo */
-  .expo{gap:4px;margin-bottom:8px}
-  .expo-item{padding:5px 8px;min-width:65px}
-  .expo-item .ex-num{font-size:1em}
-  .expo-item .ex-lbl{font-size:.68em}
+  .expo{gap:8px}
+  .expo-item{padding:6px 10px;min-width:80px}
+  .expo-item .ex-num{font-size:1.15em}
 
-  /* Notes & footer */
-  .note{font-size:.7em}
-  .footer{font-size:.72em;margin-top:20px;padding-top:10px}
+  .tag-ms{font-size:.68em}
   a{word-break:break-all}
-  .kibox{padding:10px 12px;font-size:.82em}
 }
 
-@media(max-width:480px){
-  body{padding:4px;font-size:12px}
-  .summary-grid{grid-template-columns:1fr 1fr;gap:5px}
-  .header{padding:12px 8px}
-  .header h1{font-size:1.05em}
-  .metric-card{padding:7px 5px}
-  .metric-card .num{font-size:1.15em}
-  .metric-card .lbl{font-size:.7em}
-  .card{padding:8px 6px}
-  table{font-size:.7em;min-width:500px}
-  th,td{padding:4px 5px}
+@media(max-width:500px){
+  body{padding:8px}
+  .summary-grid{grid-template-columns:repeat(2,1fr);gap:6px}
+  .metric-card{padding:8px 6px}
+  .metric-card .num{font-size:1.25em}
+  .header h1{font-size:1.2em}
+  table{font-size:.75em}
+  th,td{padding:5px 6px}
   .phase{padding-left:20px}
+  .phase-label .name{font-size:1.05em}
 }
 
 *{margin:0;padding:0;box-sizing:border-box}
