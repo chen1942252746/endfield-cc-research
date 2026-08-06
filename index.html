@@ -1,0 +1,279 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>终末地 CC 活动多平台曝光调研</title><style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Microsoft YaHei',sans-serif;background:#0a0a1a;color:#d0d0d0;line-height:1.7;padding:24px}
+.c{max-width:1400px;margin:0 auto}
+
+.header{text-align:center;padding:40px 20px;background:linear-gradient(135deg,#1a1a3e,#0d0d2b,#1a0a2e);border-radius:20px;margin-bottom:30px;border:1px solid #333}
+.header h1{font-size:2em;margin-bottom:10px;background:linear-gradient(135deg,#ff6b6b,#ffd93d,#6bcbff);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.header p{color:#888;font-size:1.1em}
+
+.card{background:#111128;border-radius:16px;padding:24px;margin-bottom:20px;border:1px solid #1e1e3a}
+.card h2{color:#ffd93d;font-size:1.25em;margin-bottom:16px;border-bottom:1px solid #1e1e3a;padding-bottom:10px}
+.card h3{color:#6bcbff;font-size:1.05em;margin:18px 0 10px}
+
+.summary-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:15px;margin:20px 0}
+.metric-card{background:linear-gradient(135deg,#191938,#12122a);border-radius:14px;padding:18px;text-align:center;border:1px solid #222}
+.metric-card .num{font-size:2.2em;font-weight:800;background:linear-gradient(135deg,#ff6b6b,#ffd93d);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.metric-card .lbl{color:#888;font-size:.85em;margin-top:4px}
+
+table{width:100%;border-collapse:collapse;margin:12px 0;font-size:.92em}
+th{background:rgba(107,203,255,.08);color:#6bcbff;padding:10px 12px;text-align:left;font-weight:600}
+td{padding:9px 12px;border-bottom:1px solid rgba(255,255,255,.04);vertical-align:top}
+tr:hover td{background:rgba(255,255,255,.02)}
+a{color:#6bcbff;text-decoration:none}
+a:hover{text-decoration:underline;color:#8dd4ff}
+.num{text-align:right;font-weight:600;color:#ffd93d;white-space:nowrap}
+.tag{display:inline-block;padding:2px 8px;border-radius:10px;font-size:.75em;margin-right:4px}
+
+.tm{background:rgba(107,255,150,.15);color:#6bff96}
+.ts{background:rgba(107,203,255,.15);color:#6bcbff}
+.tn{background:rgba(255,107,107,.15);color:#ff6b6b}
+.tt{background:rgba(200,130,255,.15);color:#c882ff}
+.td{background:rgba(255,217,61,.15);color:#ffd93d}
+
+.timeline{position:relative;margin:20px 0}
+.phase{display:grid;grid-template-columns:180px 1fr;gap:30px;margin-bottom:30px}
+.phase-label{text-align:right;padding-top:10px}
+.phase-label .name{font-size:1.4em;font-weight:700}
+.phase-label .period{color:#888;font-size:.9em;margin-top:5px}
+.phase-label .badge{display:inline-block;padding:4px 12px;border-radius:20px;font-size:.8em;margin-top:8px}
+.b-pre{background:rgba(107,203,255,.2);color:#6bcbff}
+.b-dur{background:rgba(255,107,107,.2);color:#ff6b6b}
+.b-post{background:rgba(107,255,150,.2);color:#6bff96}
+.phase-content{background:rgba(255,255,255,.03);border-radius:16px;padding:25px;border-left:3px solid #333}
+
+.ms-item{display:flex;gap:10px;padding:8px 0;border-bottom:1px solid rgba(255,255,255,.04);font-size:.87em;align-items:flex-start}
+.ms-date{color:#ffd93d;font-weight:600;min-width:55px;font-size:.82em}
+.ms-tag{min-width:70px;text-align:center}
+.ms-info{flex:1;color:#ddd}
+.ms-detail{color:#999;font-size:.82em;margin-top:2px}
+.tag-ms{display:inline-block;padding:1px 8px;border-radius:9px;font-size:.72em}
+.tms-info{background:rgba(107,203,255,.12);color:#6bcbff}
+.tms-content{background:rgba(107,255,150,.12);color:#6bff96}
+.tms-action{background:rgba(255,107,107,.12);color:#ff6b6b}
+.tms-buzz{background:rgba(255,217,61,.12);color:#ffd93d}
+
+.pgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:14px 0}
+.pcard{background:rgba(255,255,255,.025);border-radius:10px;padding:14px 16px;border:1px solid #1e1e3a}
+.pcard .pname{font-weight:700;margin-bottom:6px}
+.pcard .pstat{display:flex;justify-content:space-between;padding:3px 0;font-size:.84em}
+.pcard .pstat .pv{color:#ffd93d;font-weight:600}
+.pcard .pnote{font-size:.78em;color:#888;margin-top:6px}
+
+.kol-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:12px;margin:14px 0}
+.kol-card{background:rgba(255,255,255,.025);border-radius:12px;padding:14px 16px;border:1px solid #1e1e3a}
+.kol-card .kol-name{font-weight:700;font-size:1em;color:#fff}
+.kol-card .kol-meta{font-size:.78em;color:#888;margin:2px 0 6px}
+.kol-card .kol-tags{display:flex;flex-wrap:wrap;gap:4px;margin-bottom:6px}
+.kol-card .kol-desc{font-size:.82em;color:#aaa}
+.kol-badge{display:inline-block;padding:2px 7px;border-radius:9px;font-size:.7em}
+.kb-hg{background:rgba(107,203,255,.15);color:#6bcbff}
+.kb-non{background:rgba(255,107,107,.15);color:#ff6b6b}
+.kb-jp{background:rgba(200,130,255,.15);color:#c882ff}
+.kb-cn{background:rgba(255,217,61,.15);color:#ffd93d}
+.kb-en{background:rgba(107,255,150,.15);color:#6bff96}
+
+.summary-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px}
+.sbox{border-radius:12px;padding:16px 18px;font-size:.88em}
+.sbox h3{font-size:1em;margin-bottom:8px}
+.sbox ul{margin-left:16px;color:#bbb}
+.sbox li{margin-bottom:4px}
+.sbox-red{background:rgba(255,107,107,.06);border:1px solid rgba(255,107,107,.2)}
+.sbox-red h3{color:#ff6b6b}
+.sbox-blue{background:rgba(107,203,255,.06);border:1px solid rgba(107,203,255,.2)}
+.sbox-blue h3{color:#6bcbff}
+.sbox-yellow{background:rgba(255,217,61,.06);border:1px solid rgba(255,217,61,.2)}
+.sbox-yellow h3{color:#ffd93d}
+
+.kibox{background:rgba(255,217,61,.05);border:1px solid rgba(255,217,61,.2);border-radius:12px;padding:16px 18px;margin-top:16px;font-size:.9em}
+.kibox strong{color:#ffd93d}
+
+.footer{text-align:center;color:#555;font-size:.78em;margin-top:32px;padding-top:16px;border-top:1px solid #1e1e3a}
+.note{font-size:.78em;color:#666;margin-top:6px;font-style:italic}
+.expo{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:14px}
+.expo-item{background:rgba(255,255,255,.03);border-radius:8px;padding:8px 14px;text-align:center;min-width:100px}
+.expo-item .ex-num{font-size:1.3em;font-weight:700;color:#ffd93d}
+.expo-item .ex-lbl{font-size:.74em;color:#888}
+</style></head><body><div class="c">
+<div class="header"><h1>🔬 Optimized Combat Trial — Contingency Contract</h1><p>Arknights: Endfield（终末地）· 多平台曝光调研</p><p style="margin-top:8px;color:#666;font-size:.9em">宣发: <a href="https://x.com/EndfieldCreator/status/2070460544201662558">@EndfieldCreator (6/26)</a> | 总奖金 $40,000 | 调研: 2026-07-29</p></div>
+
+<div class="card"><h2>📊 总曝光概览</h2>
+<div class="summary-grid">
+<div class="metric-card"><div class="num">6 语种</div><div class="lbl">解说语种</div><div style="font-size:.7em;color:#666;margin-top:4px">EN · JP · KR · RU · ES · ID</div></div>
+<div class="metric-card"><div class="num">289</div><div class="lbl">YT 创作者官号切片播放量</div><div style="font-size:.7em;color:#666;margin-top:4px">Winner Highlights #1-3</div></div>
+<div class="metric-card"><div class="num">~8</div><div class="lbl">Reddit 赛事发帖</div></div>
+<div class="metric-card"><div class="num">↑1,100+</div><div class="lbl">Reddit 赛事点赞</div></div>
+<div class="metric-card"><div class="num">180+</div><div class="lbl">Reddit 赛事评论</div></div>
+<div class="metric-card"><div class="num">7,149</div><div class="lbl">Twitch 16进8 CCV (7/8-9)</div></div>
+<div class="metric-card"><div class="num">4,653</div><div class="lbl">Twitch 8进4 CCV (7/10)</div></div>
+<div class="metric-card"><div class="num">1,389</div><div class="lbl">Twitch 4进2 CCV (7/11)</div></div>
+<div class="metric-card"><div class="num">~36K</div><div class="lbl">选手个人 YT VOD播放量</div><div style="font-size:.7em;color:#666;margin-top:4px">含 KR 海选 · 正赛选手个人直播</div></div>
+</div>
+<div class="note">* 选手个人直播数据为手动统计，可能存在误差或遗漏。YT 创作者官号：<a href="https://www.youtube.com/@EndfieldIndustriesCreators">@EndfieldIndustriesCreators</a>。切片仅 3 条合计 289 播放，数据异常，存疑。</div></div>
+<div class="card"><h2>📋 官方信息披露审计</h2>
+
+<table>
+<tr><th style="width:60%">已披露信息</th><th style="width:40%">披露时间</th></tr>
+<tr><td>活动名称 "Optimized Combat Trial - Contingency Contract"</td><td>6/26</td></tr>
+<tr><td>16 强完整名单</td><td>6/26</td></tr>
+<tr><td>总奖金 <strong>$40,000</strong></td><td>6/26</td></tr>
+<tr><td>完整赛程时间（UTC+8）及对阵表</td><td>7/6</td></tr>
+<tr><td>每场解说员分配</td><td>7/6</td></tr>
+<tr><td>冠军奖金 <strong>$10,000</strong></td><td>7/6</td></tr>
+<tr><td>四强奖金 <strong>$4,000</strong></td><td>7/10</td></tr>
+<tr><td>部分选手 Risk 分数和通关时间</td><td>7/10 · 7/11</td></tr>
+<tr><td>八强名单</td><td>7/9</td></tr>
+<tr><td>四强名单</td><td>7/10</td></tr>
+<tr><td>决赛对阵</td><td>7/11</td></tr>
+</table>
+
+<h3 style="color:#ff6b6b">⚠️ 赛事必需但从未披露的信息</h3>
+<table>
+<tr><th style="width:60%">未披露信息</th><th style="width:40%">重要性</th></tr>
+<tr><td>7/8 开赛当天未发布任何新官推</td><td>核心 — 开赛日零信息</td></tr>
+<tr><td>选拔方式（韩国公开招募，其余地区仅 "after a series of evaluations"）</td><td>核心 — 仅韩国确认海选</td></tr>
+<tr><td>赛制规则细节（Risk 评分标准/计时方式/胜负判定）</td><td>核心 — 观众无法理解比赛</td></tr>
+<tr><td>选手个人直播间</td><td>核心 — 观众不知道去哪看</td></tr>
+<tr><td>亚军奖金</td><td>重要 — 奖金结构不完整</td></tr>
+<tr><td>5-16 名奖金</td><td>重要 — 仅公布冠军和四强</td></tr>
+<tr><td>赛事官方主直播间（分散在解说个人频道）</td><td>重要 — 入口不统一</td></tr>
+<tr><td>各场胜负比分/Risk 分数</td><td>重要 — 无数据可复盘</td></tr>
+<tr><td>赛事回放/VOD 合集</td><td>一般 — 赛后无可追溯渠道</td></tr>
+</table>
+</div>
+
+<div class="card"><h2>⏱️ 赛事官推宣发时间轴</h2>
+<div class="timeline">
+
+<div class="phase"><div class="phase-label"><div class="name">📢 赛前</div><div class="period">6月19日 → 7月7日</div><span class="badge b-pre">18 天</span></div>
+<div class="phase-content"><div class="expo"><div class="expo-item"><div class="ex-num">$40K</div><div class="ex-lbl">奖金公布</div></div><div class="expo-item"><div class="ex-num">2 条</div><div class="ex-lbl">官方推文</div></div></div>
+<div class="ms-item"><div class="ms-date" style="color:#ff6b6b">🔑 6/19</div><div class="ms-tag"><span class="tag-ms tms-action">KR 海选</span></div><div class="ms-info"><strong>🇰🇷 韩国公开招募</strong> — <a href="https://x.com/AKEndfieldKR/status/2067792618814406771">@AKEndfieldKR</a><div class="ms-detail">韩国区域公开海选。地区奖励：Samsung S26 Ultra + 750万韩元。这是全平台唯一确认的公开选拔。</div></div></div>
+<div class="ms-item"><div class="ms-date" style="color:#ff6b6b">🔑 6/26</div><div class="ms-tag"><span class="tag-ms tms-action">$40K 公布</span></div><div class="ms-info"><strong>🏆 官方 Twitter 宣发</strong> — <a href="https://x.com/EndfieldCreator/status/2070460544201662558">@EndfieldCreator</a><div class="ms-detail">首次公布 $40,000 总奖金池，宣布 16 强名单 LOCKED IN。赛事起点。</div></div></div>
+<div class="ms-item"><div class="ms-date" style="color:#ff6b6b">🔑 7/6</div><div class="ms-tag"><span class="tag-ms tms-action">赛程公布</span></div><div class="ms-info"><strong>⚔️ 赛程 & 对阵公布</strong> — <a href="https://x.com/EndfieldCreator/status/2073991153456935411">@EndfieldCreator 赛程帖</a><div class="ms-detail">Base Round 对阵表、解说员名单、直播链接。</div></div></div>
+<div style="margin-top:14px;padding:10px 14px;background:rgba(107,203,255,.05);border-radius:8px;font-size:.85em;color:#6bcbff"><strong>⚠️</strong> 赛前仅 2 条官方推文。无公开选拔/报名信息。</div></div></div>
+
+<div class="phase"><div class="phase-label"><div class="name">🔥 赛事</div><div class="period">7月8日 → 7月12日</div><span class="badge b-dur">5 天</span></div>
+<div class="phase-content" style="border-left-color:#ff6b6b"><div class="expo"><div class="expo-item"><div class="ex-num">13,191</div><div class="ex-lbl">Twitch 三日加总 CCV</div></div><div class="expo-item"><div class="ex-num">14 场</div><div class="ex-lbl">Twitch 直播场次</div></div><div class="expo-item"><div class="ex-num">4 条</div><div class="ex-lbl">官方推文（赛果）</div></div></div>
+<div class="ms-item"><div class="ms-date">7/10</div><div class="ms-tag"><span class="tag-ms tms-action">8进4</span></div><div class="ms-info"><strong>Quarterfinals</strong> — <a href="https://x.com/EndfieldCreator/status/2075630228060422570">4 强产生</a><div class="ms-detail"></div></div></div>
+<div class="ms-item"><div class="ms-date" style="color:#ff6b6b">🔑 7/11</div><div class="ms-tag"><span class="tag-ms tms-action">4进2</span></div><div class="ms-info"><strong>Semifinals</strong> — <a href="https://x.com/EndfieldCreator/status/2076210682367033651">决赛对阵锁定</a><div class="ms-detail"></div></div></div>
+<div class="ms-item"><div class="ms-date">7/12</div><div class="ms-tag"><span class="tag-ms tms-content">决赛</span></div><div class="ms-info"><strong>🏆 Grand Final</strong> — <a href="https://x.com/EndfieldCreator/status/2076210682367033651">官推决赛帖</a><div class="ms-detail">$40K 冠军诞生。<a href="https://old.reddit.com/r/Endfield/comments/1uu4m66/">Reddit 决赛帖 ↑244</a></div></div></div>
+</div></div>
+
+
+<div style="margin-top:14px;padding:10px 14px;background:rgba(255,107,107,.05);border-radius:8px;font-size:.85em;color:#ff6b6b"><strong>⚠️</strong> 赛事仅 5 天。Reddit 仅 8 帖，最高点赞244。全平台无选手个人直播间链接。</div>
+<div class="phase"><div class="phase-label"><div class="name">📈 赛后</div><div class="period">7月下旬</div><span class="badge b-post">短暂</span></div>
+<div class="phase-content" style="border-left-color:#6bff96"><div class="expo"><div class="expo-item"><div class="ex-num">289</div><div class="ex-lbl">官方切片播放</div></div><div class="expo-item"><div class="ex-num">↑169</div><div class="ex-lbl">唯一讨论帖</div></div></div>
+<div class="ms-item"><div class="ms-date">7月下旬</div><div class="ms-tag"><span class="tag-ms tms-content">官方归档</span></div><div class="ms-info"><strong>Winner Highlights #1-3</strong> — 累计 289 播放<div class="ms-detail">官方 YouTube <a href="https://youtube.com/@EndfieldIndustriesCreators">@EndfieldIndustriesCreators</a> 发布赛事精选。</div></div></div>
+<div class="ms-item"><div class="ms-date">7/22</div><div class="ms-tag"><span class="tag-ms tms-content">Highlight</span></div><div class="ms-info"><strong>官号发布 Highlight 剪辑</strong><div class="ms-detail">于赛果帖评论区及 YouTube <a href="https://youtube.com/@EndfieldIndustriesCreators">@EndfieldIndustriesCreators</a> 同步发布 Winner Highlights 系列。</div></div></div>
+<div class="ms-item"><div class="ms-date">赛后</div><div class="ms-tag"><span class="tag-ms tms-buzz">唯一讨论</span></div><div class="ms-info"><strong>Sciel bracket was one of the best</strong> — <a href="https://old.reddit.com/r/Endfield/comments/1ur9ufh/">Reddit 点赞169</a><div class="ms-detail">赛事期间唯一一条选手表现讨论帖。</div></div></div>
+<div style="margin-top:14px;padding:10px 14px;background:rgba(107,255,150,.05);border-radius:8px;font-size:.85em;color:#6bff96"><strong>⚠️</strong> 赛后几乎无讨论。仅 1 条 Reddit 帖。</div></div></div>
+
+</div></div>
+
+
+<div class="card"><h2>🎯 16 强选手 + 解说员完整矩阵</h2>
+<p style="color:#888;font-size:.85em;margin-bottom:16px">来源：<a href="https://x.com/EndfieldCreator/status/2070460544201662558">@EndfieldCreator 宣发帖</a> 名单图 + 逐个主页调研</p>
+
+<h3>🎮 二游垂类创作者 (16人)</h3>
+<table><tr><th>#</th><th>Team</th><th>ID</th><th>语种</th><th>游戏 & 内容类型</th><th>粉丝量</th><th>主页</th></tr>
+<tr><td>1</td><td>Team 2</td><td><strong>UBOLG</strong></td><td>RU</td><td>终末地/方舟 攻略</td><td>557</td><td><a href="https://youtube.com/@Ubolg">YT</a></td></tr><tr><td>2</td><td>Team 3</td><td><strong>kyostinv</strong></td><td>EN</td><td>终末地/方舟 攻略</td><td>79.7万</td><td><a href="https://youtube.com/@kyostinv">YT</a> · <a href="https://twitch.tv/kyostinv">Twitch</a> · <a href="https://x.com/kyostinv">X</a> · <a href="https://discord.gg/kyostinv">Discord</a></td></tr><tr><td>3</td><td>Team 4</td><td><strong>tamasuteneko</strong></td><td>JP</td><td>终末地/方舟 攻略/实况</td><td>2,800</td><td><a href="https://x.com/tamasuteneko">X</a> · <a href="https://youtube.com/channel/UC6VDxLKUqRLcqBErqLtvIZg">YT</a> · <a href="https://twitch.tv/tamastraycat">Twitch</a></td></tr><tr><td>4</td><td>Team 8</td><td><strong>linnull_</strong></td><td>EN</td><td>终末地/绝区零 攻略</td><td>2.89万</td><td><a href="https://x.com/linnull_">X</a> · <a href="https://youtube.com/@LinNull">YT</a> · <a href="https://twitch.tv/linnull">Twitch</a></td></tr><tr><td>5</td><td>Team 8</td><td><strong>just_bluejay</strong></td><td>EN</td><td>终末地/方舟 实况</td><td>1,960</td><td><a href="https://x.com/just_bluejay">X</a> · <a href="https://youtube.com/@bluejayendfield">YT</a></td></tr><tr><td>6</td><td>Team 9</td><td><strong>Sciel12</strong></td><td>KR</td><td>终末地 攻略</td><td>6.07万</td><td><a href="https://x.com/Sciel12">X</a> · <a href="https://youtube.com/@Sciel">YT</a></td></tr><tr><td>7</td><td>Team 10</td><td><strong>M4R3</strong></td><td>KR/EN</td><td>终末地 攻略</td><td>9,020</td><td><a href="https://youtube.com/@M4R3_ENDFIELD">YT</a></td></tr><tr><td>8</td><td>Team 13</td><td><strong>official_zimen</strong></td><td>KR</td><td>终末地 攻略/帧分析</td><td>4,080</td><td><a href="https://x.com/official_zimen">X</a> · <a href="https://youtube.com/@Official_Zimen">YT</a> · <a href="https://chzzk.naver.com/a5913df738c4b1cacb26a5a49fe735da">CHZZK</a> · <a href="https://reddit.com/user/Ziiiiiman">Reddit</a></td></tr><tr><td>9</td><td>Team 14</td><td><strong>LonelyCat__</strong></td><td>ES</td><td>终末地 攻略</td><td>4,610</td><td><a href="https://youtube.com/@LonelyCatGacha">YT</a> · <a href="https://x.com/LonelyCatGacha">X</a> · <a href="https://twitch.tv/lonelycat__">Twitch</a></td></tr><tr><td>10</td><td>Team 10</td><td><strong>하비</strong></td><td>KR</td><td>终末地/方舟 攻略</td><td>2.14万</td><td><a href="https://youtube.com/@Har_vi23">YT</a> · <a href="https://cafe.naver.com/harvi">Naver Cafe</a> · <a href="https://chzzk.naver.com/11b9646ffae19d55d923ef3860fee839">CHZZK</a></td></tr><tr><td>11</td><td>Team 12</td><td><strong>okMuzzy</strong></td><td>EN</td><td>终末地/绝区零 攻略</td><td>6,890</td><td><a href="https://x.com/okMuzzy">X</a> · <a href="https://youtube.com/@okMuzzy">YT</a></td></tr><tr><td>12</td><td>Team 15</td><td><strong>jin_togahara</strong> (都ヶ原ジン)</td><td>JP</td><td>终末地/鸣潮 攻略/实况</td><td>3,850</td><td><a href="https://x.com/jin_togahara">X</a> · <a href="https://youtube.com/@TogaharaJin">YT</a></td></tr><tr><td>13</td><td>Team 16</td><td><strong>show__ty</strong></td><td>JP</td><td>终末地/方舟 攻略</td><td>2.1万</td><td><a href="https://x.com/show__ty">X</a> · <a href="https://youtube.com/@show_ty">YT</a></td></tr><tr><td>14</td><td>Team 14</td><td><strong>ZackoMR</strong> (Zacko87)</td><td>ES</td><td>终末地 攻略</td><td>3.09万</td><td><a href="https://x.com/ZackoMR">X</a> · <a href="https://twitch.tv/zacko87">Twitch</a> · <a href="https://youtube.com/c/zacko87">YT</a> · <a href="https://discord.com/invite/bbX3syaucS">Discord</a></td></tr><tr><td>15</td><td>Team 7</td><td><strong>Ndrahuyy Ch.</strong></td><td>ID</td><td>终末地 攻略/实况</td><td>1.33万</td><td><a href="https://youtube.com/@NdrahuyyCh">YT</a> · <a href="https://discord.gg/6v23WJveKN">Discord</a></td></tr><tr><td>16</td><td>Team 1</td><td><strong>MaybeMaygi</strong></td><td>EN</td><td>二游百家饭 攻略/实况</td><td>4.41万</td><td><a href="https://x.com/MaybeMaygi">X</a> · <a href="https://youtube.com/@Maygi">YT</a></td></tr></table>
+
+<h3>🌍 非二游垂类 · 破圈 (1人)</h3>
+<table><tr><th>#</th><th>Team</th><th>ID</th><th>语种</th><th>主业 & 内容类型</th><th>主页</th></tr>
+<tr><td>17</td><td>Team 11</td><td><strong>Nao_draw</strong></td><td>ID</td><td>绘画/艺术创作</td><td></td><td><a href="https://x.com/Nao_draw">X</a></td></tr></table>
+
+<h3>🔍 无法找到主页 (4人)</h3>
+<table><tr><th></th><th>Team</th><th>ID</th><th>语种</th><th>游戏 & 内容类型</th><th>备注</th></tr>
+<tr><td>—</td><td>Team 2</td><td><strong>akine (Акине)</strong></td><td>RU</td><td>—</td><td><a href="https://x.com/akine__">X</a> · <a href="https://t.me/s/AKINENIKA">TG</a></td></tr><tr><td>—</td><td>Team 5</td><td><strong>YT流影</strong></td><td>ZH/EN</td><td>—</td><td>全平台主页未找到</td></tr><tr><td>—</td><td>Team 6</td><td><strong>TooWang</strong></td><td>EN</td><td>—</td><td>全平台主页未找到</td></tr><tr><td>—</td><td>Team 6</td><td><strong>Tok</strong></td><td>EN</td><td>—</td><td>全平台主页未找到</td></tr></table>
+
+<h3>🎙️ 解说员</h3>
+<table><tr><th style="width:5%">#</th><th>ID</th><th style="width:8%">语种</th><th>游戏 & 内容类型</th><th>主页</th></tr>
+<tr><td>1</td><td><strong>fobm4ster</strong></td><td>EN</td><td>二游垂类 · 百家饭</td><td><a href="https://x.com/fobm4ster">X</a> · <a href="https://twitch.tv/fobm4ster">Twitch</a> · CCV 峰值 2,480</td></tr>
+<tr><td>2</td><td><strong>mrpokke</strong></td><td>EN</td><td>二游垂类 · 百家饭</td><td><a href="https://x.com/mrpokke">X</a> · <a href="https://twitch.tv/mrpokke">Twitch</a> · CCV 峰值 542</td></tr>
+<tr><td>3</td><td><strong>Jenazadp</strong></td><td>EN</td><td>二游垂类 · 百家饭</td><td><a href="https://x.com/Jenazadp">X</a> · <a href="https://twitch.tv/jenazad">Twitch</a> · CCV 峰值 1,631</td></tr>
+<tr><td>4</td><td><strong>SweetilyVT</strong></td><td>EN</td><td>二游垂类 · 百家饭</td><td><a href="https://x.com/SweetilyVT">X</a> · <a href="https://twitch.tv/sweetily">Twitch</a> · CCV 峰值 1,278</td></tr>
+<tr><td>5</td><td><strong>MaliwanRill</strong></td><td>RU</td><td>二游垂类 · 鸣潮专精</td><td><a href="https://x.com/MaliwanRill">X</a> · <a href="https://twitch.tv/maliwan">Twitch</a> · CCV 213</td></tr>
+<tr><td>6</td><td><strong>sayusyn</strong></td><td>EN</td><td>二游垂类 · 百家饭</td><td><a href="https://x.com/sayusyn">X</a> · <a href="https://twitch.tv/sayu">Twitch</a> · CCV 725 (7/9)</td></tr>
+<tr><td>7</td><td><strong>엘시 Elsea</strong></td><td>KR</td><td>非二游垂类 · VTuber 创作者（唯一非二游解说）</td><td><a href="https://x.com/elseaglobal">X</a> · <a href="https://chzzk.naver.com/6ccaebc2569f62344c6fc257f8f2b9ad">CHZZK</a> · <a href="https://youtube.com/@ElseaCh/videos">YT</a></td></tr>
+</table>
+
+<div class="summary-row"><div class="sbox sbox-blue"><h3>选手侧：二游 vs 非二游</h3>
+<div style="margin:8px 0"><div style="display:flex;justify-content:space-between"><span>二游垂类</span><span style="color:#6bcbff">16 人 (94%)</span></div><div style="height:6px;background:#1e1e3a;border-radius:3px;margin:4px 0"><div style="height:100%;width:94%;background:#6bcbff;border-radius:3px"></div></div></div>
+<div style="margin:8px 0"><div style="display:flex;justify-content:space-between"><span>非二游垂类（破圈）</span><span style="color:#ff6b6b">1 人 (6%)</span></div><div style="height:6px;background:#1e1e3a;border-radius:3px;margin:4px 0"><div style="height:100%;width:6%;background:#ff6b6b;border-radius:3px"></div></div></div>
+<div style="font-size:.82em;color:#888">破圈: VTuber 1 · 素人/绘画 1</div></div>
+<div class="sbox sbox-blue"><h3>解说侧</h3><div style="margin:8px 0"><div style="display:flex;justify-content:space-between"><span>二游垂类 · 百家饭/鸣潮</span><span style="color:#6bcbff">6 人 (86%)</span></div><div style="height:6px;background:#1e1e3a;border-radius:3px;margin:4px 0"><div style="height:100%;width:86%;background:#6bcbff;border-radius:3px"></div></div></div><div style="margin:8px 0"><div style="display:flex;justify-content:space-between"><span>非二游垂类</span><span style="color:#ff6b6b">1 人 (14%)</span></div><div style="height:6px;background:#1e1e3a;border-radius:3px;margin:4px 0"><div style="height:100%;width:14%;background:#ff6b6b;border-radius:3px"></div></div></div><div style="font-size:.82em;color:#888">非二游：엘시 Elsea · VTuber</div></div>
+<div class="sbox sbox-yellow"><h3>解说语种多样化（部分为非官方解说，为参赛选手转播）</h3><div style="font-size:.85em;line-height:2">EN 英语：<a href="https://www.twitch.tv/fobm4ster">fobm4ster</a> · <a href="https://www.twitch.tv/mrpokke">mrpokke</a> · <a href="https://www.twitch.tv/jenazad">Jenazadp</a> · <a href="https://www.twitch.tv/sweetily">SweetilyVT</a> · <a href="https://www.twitch.tv/sayu">Sayu</a><br><a href="https://www.youtube.com/@TogaharaJin">JP 日语：都ヶ原ジン Togahara Jin</a><br><a href="https://chzzk.naver.com/6ccaebc2569f62344c6fc257f8f2b9ad">KR 韩语：엘시v</a><br><a href="https://www.twitch.tv/maliwan">RU 俄语：MaliwanRill</a><br><a href="https://www.twitch.tv/zacko87">ES 西语：ZackoMR (Zacko87)</a><br><a href="https://www.youtube.com/@NdrahuyyCh">ID 印尼语：Ndrahuyy Ch.</a></div></div></div>
+
+
+<div class="card"><h2>⚠️ 解说选择争议</h2>
+<p style="color:#bbb;font-size:.9em">解说阵容是本次赛事唯一引发社区负面讨论的话题。</p>
+
+<div class="summary-row" style="margin-top:14px">
+<div class="sbox sbox-red"><h3>争议焦点</h3>
+<ul>
+<li>7 位解说<strong>全部非终末地专精</strong>——均为百家饭二游主播、鸣潮专精或 VTuber</li>
+<li>赛事为高强度 Risk 速通挑战，但解说缺乏对终末地深层机制的理解</li>
+<li>观众担忧解说的专业度无法匹配比赛的技术深度</li>
+</ul></div>
+<div class="sbox sbox-yellow"><h3>关键链接</h3>
+<div style="font-size:.85em;line-height:2">
+<strong>6/26 宣发帖</strong> — 赛程帖中首次标注解说链接，评论区即出现质疑<br>
+<a href="https://x.com/EndfieldCreator/status/2070460544201662558">x.com/EndfieldCreator/status/2070460544201662558</a><br><br>
+<strong>Reddit 争议帖</strong> — "Why they hired random people who barely play Endfield as Caster" 💬41<br>
+<a href="https://old.reddit.com/r/Endfield/comments/1ugokrf/">old.reddit.com/r/Endfield/comments/1ugokrf/</a>
+</div></div>
+</div>
+
+<div class="kibox"><strong>🔑 结论</strong><br>
+鹰角在解说侧<strong>完全放弃了终末地专精创作者</strong>，与选手侧 82% 二游垂类形成鲜明对比。这可能是刻意为之——用跨界解说吸引外部观众，但也付出了社区信任的代价（全平台唯一负面讨论）。</div></div>
+<div class="card"><h2>📺 赛事官方直播间 & CCV</h2>
+<p style="color:#888;font-size:.85em;margin-bottom:12px">官方将不同场次分配给不同解说，每人每场约 1 小时，轮换覆盖全部比赛。</p>
+<table>
+<tr><th>阶段</th><th>日期</th><th>时间 (UTC+8)</th><th>直播间</th><th>频道</th><th>CCV</th></tr>
+<tr><td rowspan="8"><strong>16进8</strong></td><td rowspan="6">7月8日</td><td>10:30-11:30</td><td>twitch.tv/fobm4ster</td><td>fobm4ster</td><td class="num">2,480</td></tr>
+<tr><td>13:30-14:30</td><td>twitch.tv/mrpokke</td><td>mrpokke</td><td class="num">542</td></tr>
+<tr><td>14:30-15:30</td><td>chzzk.naver.com/6ccaeb…</td><td>엘시v</td><td class="num" style="color:#888">无法获取</td></tr>
+<tr><td>16:30-17:30</td><td>twitch.tv/sweetily</td><td>Sweetily</td><td class="num">935</td></tr>
+<tr><td>20:30-21:30</td><td>twitch.tv/jenazad</td><td>Jenazad</td><td class="num">1,631</td></tr>
+<tr><td>21:30-22:30</td><td>twitch.tv/maliwan</td><td>Maliwan</td><td class="num">213</td></tr>
+<tr><td rowspan="2">7月9日</td><td>16:30-17:30</td><td>twitch.tv/sayu</td><td>sayu</td><td class="num">725</td></tr>
+<tr><td>19:30-20:30</td><td>twitch.tv/sweetily</td><td>Sweetily</td><td class="num">623</td></tr>
+<tr><td rowspan="4"><strong>8进4</strong></td><td rowspan="4">7月10日</td><td>11:30-12:30</td><td>twitch.tv/mrpokke</td><td>mrpokke</td><td class="num">292</td></tr>
+<tr><td>13:00-14:00</td><td>twitch.tv/fobm4ster</td><td>fobm4ster</td><td class="num">2,078</td></tr>
+<tr><td>15:30-16:30</td><td>twitch.tv/jenazad</td><td>Jenazad</td><td class="num">1,005</td></tr>
+<tr><td>18:30-19:30</td><td>twitch.tv/sweetily</td><td>Sweetily</td><td class="num">1,278</td></tr>
+<tr><td rowspan="4"><strong>4进2</strong></td><td rowspan="4">7月11日</td><td>12:00-13:00</td><td>twitch.tv/sayu</td><td>sayu</td><td class="num" style="color:#888">未开播</td></tr>
+<tr><td>—</td><td>chzzk.naver.com/6ccaeb…</td><td>엘시v</td><td class="num" style="color:#888">无法获取</td></tr>
+<tr><td>14:30-15:30</td><td>twitch.tv/sweetily</td><td>Sweetily</td><td class="num">819</td></tr>
+<tr><td>—</td><td>twitch.tv/jenazad</td><td>Jenazad</td><td class="num">570</td></tr>
+<tr><td><strong>决赛</strong></td><td>7月12日</td><td>14:30-15:30</td><td>chzzk.naver.com/6ccaeb…</td><td>엘시v</td><td class="num" style="color:#888">无法获取</td></tr>
+</table>
+<div class="note">* CCV 来源：TwitchTracker。CHZZK(엘시v) 无法获取。</div></div>
+<div class="card"><h2>🔴 Reddit 赛事强相关 Top 8</h2>
+<div class="note" style="margin-bottom:12px">仅统计"Optimized Combat Trial"锦标赛讨论。KyoStinV Early Access 等 CC 游戏模式内容已排除。</div><table>
+<tr><th>#</th><th>标题</th><th>👍</th><th>💬</th><th>日期</th><th>链接</th></tr>
+<tr><td>1</td><td><span class="tag tt">Tournament</span> 40K Contingency Contract Tournament Grand Final in 2.5 Hours!</td><td class="num">244</td><td class="num">24</td><td>7/15</td><td><a href="https://old.reddit.com/r/Endfield/comments/1uu4m66/">→ 原帖</a></td></tr>
+<tr><td>2</td><td><span class="tag tn">News</span> Endfield CN community is instituting CC tournament sponsored by HG</td><td class="num">204</td><td class="num">34</td><td>赛前</td><td><a href="https://old.reddit.com/r/Endfield/comments/1uci4r0/">→ 原帖</a></td></tr>
+<tr><td>3</td><td><span class="tag tn">News</span> $40k Global Contingency Contract Beta Tournament</td><td class="num">180</td><td class="num">26</td><td>赛前</td><td><a href="https://old.reddit.com/r/Endfield/comments/1uplt2e/">→ 原帖</a></td></tr>
+<tr><td>4</td><td><span class="tag tt">Tournament</span> For Anyone not Aware, the Contingency Contract Tournament is Live!</td><td class="num">176</td><td class="num">21</td><td>7/9</td><td><a href="https://old.reddit.com/r/Endfield/comments/1uqsrjw/">→ 原帖</a></td></tr>
+<tr><td>5</td><td><span class="tag td">Discussion</span> Sciel's bracket in the tournament was one of the best</td><td class="num">169</td><td class="num">13</td><td>7/9</td><td><a href="https://old.reddit.com/r/Endfield/comments/1ur9ufh/">→ 原帖</a></td></tr>
+<tr><td>6</td><td><span class="tag tt">Tournament</span> 40k CC Tournament Semi-Finals in 4 Hours!</td><td class="num">54</td><td class="num">13</td><td>7/12</td><td><a href="https://old.reddit.com/r/Endfield/comments/1ut4nat/">→ 原帖</a></td></tr>
+<tr><td>7</td><td><span class="tag tt">Tournament</span> Round 2 of CCBeta Tournament About to Begin in 4.5 hours</td><td class="num">50</td><td class="num">5</td><td>7/11</td><td><a href="https://old.reddit.com/r/Endfield/comments/1us663h/">→ 原帖</a></td></tr>
+<tr><td>8</td><td><span class="tag td">Discussion</span> Why random people as Caster for Global CC tournament?</td><td class="num">—</td><td class="num">41</td><td>7/9</td><td><a href="https://old.reddit.com/r/Endfield/comments/1ugokrf/">→ 原帖</a></td></tr>
+</table>
+<div class="note">* 赛事强相关累计：~8帖 / ↑1,100+ / 💬180+。全平台唯一质疑选拔的帖子是 #8（针对解说员而非选手），选手选拔方式无任何公开讨论。</div></div>
+<div class="card"><h2>▶️ 选手个人 YouTube VOD Top 8</h2>
+<div class="note" style="margin-bottom:12px">数据来源：各选手 YouTube 频道，手动统计。含韩国海选直播。</div><table>
+<tr><th>#</th><th>选手</th><th>频道</th><th>明细</th><th>播放量</th></tr>
+<tr><td>1</td><td>Sciel12</td><td><a href="https://youtube.com/@Sciel">@Sciel</a></td><td>Day1 + Day1-2 + Day2 + Semi + Final + 感想</td><td class="num">13,381</td></tr>
+<tr><td>2</td><td>linnull_</td><td><a href="https://youtube.com/@LinNull">@LinNull</a></td><td>Day1 + Day2 + Day3 + Day4</td><td class="num">6,572</td></tr>
+<tr><td>3</td><td>하비</td><td><a href="https://youtube.com/@Har_vi23">@Har_vi23</a></td><td>海选 3 场</td><td class="num">6,441</td></tr>
+<tr><td>4</td><td>bluejayendfield</td><td><a href="https://youtube.com/@bluejayendfield">@bluejayendfield</a></td><td>Day1 + Day2 + Day3 + Day4</td><td class="num">3,813</td></tr>
+<tr><td>5</td><td>show__ty</td><td><a href="https://youtube.com/@show_ty">@show_ty</a></td><td>正赛 VOD</td><td class="num">1,582</td></tr>
+<tr><td>6</td><td>M4R3</td><td><a href="https://youtube.com/@M4R3_ENDFIELD">@M4R3_ENDFIELD</a></td><td>Day2</td><td class="num">1,420</td></tr>
+<tr><td>7</td><td>都ヶ原ジン</td><td><a href="https://youtube.com/@TogaharaJin">@TogaharaJin</a></td><td>Day2 + Semi + Final</td><td class="num">1,274</td></tr>
+<tr><td>8</td><td>official_zimen</td><td><a href="https://youtube.com/@Official_Zimen">@Official_Zimen</a></td><td>Day2</td><td class="num">229</td></tr>
+</table>
+<div class="note">* 选手个人直播数据为手动统计，可能存在误差或遗漏。MaybeMaygi 的 YouTube 频道链接待补充。</div></div>
+<div class="footer">调研日期: 2026-07-29 · 数据来源: Twitter/X · Twitch · YouTube · Reddit</div>
+</div></body></html>
