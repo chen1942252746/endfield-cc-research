@@ -1,4 +1,64 @@
 <!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>终末地 CC 活动多平台曝光调研</title><style>
+
+@media(max-width:768px){
+  body{padding:8px;font-size:14px}
+  .header{padding:20px 12px;border-radius:12px;margin-bottom:16px}
+  .header h1{font-size:1.3em}
+  .header p{font-size:.85em}
+  .card{padding:14px 12px;border-radius:10px;margin-bottom:14px}
+  .card h2{font-size:1.05em}
+  .summary-grid{grid-template-columns:repeat(2,1fr);gap:8px}
+  .metric-card{padding:10px 8px}
+  .metric-card .num{font-size:1.4em}
+
+  /* Timeline mobile */
+  .timeline{padding-left:8px;border-left:2px solid #2a2a4a;margin:12px 0}
+  .phase{display:block;margin-bottom:20px}
+  .phase::before{left:-14px;top:6px;width:12px;height:12px}
+  .phase-label{position:static;text-align:left;padding:0;margin-bottom:8px}
+  .phase-label .name{font-size:1.1em;display:inline}
+  .phase-label .period{display:inline;margin-left:8px}
+  .phase-label .badge{display:inline-block;margin-left:8px}
+  .phase-content{padding:12px;border-left-width:2px;border-radius:8px}
+  .ms-item{flex-direction:column;gap:4px;padding:6px 0;font-size:.82em}
+  .ms-date{min-width:auto}
+  .ms-tag{align-self:flex-start}
+
+  /* Tables */
+  table{font-size:.78em;display:block;overflow-x:auto;white-space:nowrap}
+  th,td{padding:6px 8px}
+
+  /* KOL grid */
+  .kol-grid{grid-template-columns:1fr}
+
+  /* Summary rows */
+  .summary-row{grid-template-columns:1fr}
+
+  /* Platform grid */
+  .pgrid{grid-template-columns:1fr}
+
+  /* Expo items */
+  .expo{gap:6px}
+  .expo-item{padding:6px 10px;min-width:80px}
+  .expo-item .ex-num{font-size:1.1em}
+
+  /* Notes */
+  .note{font-size:.72em}
+
+  /* Links */
+  a{word-break:break-all}
+}
+
+@media(max-width:480px){
+  body{padding:4px}
+  .summary-grid{grid-template-columns:repeat(2,1fr);gap:6px}
+  .header h1{font-size:1.15em}
+  table{font-size:.72em}
+  th,td{padding:4px 6px}
+  .card{padding:10px 8px}
+  .kibox{padding:10px 12px;font-size:.82em}
+}
+
 *{margin:0;padding:0;box-sizing:border-box}
 body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Microsoft YaHei',sans-serif;background:#0a0a1a;color:#d0d0d0;line-height:1.7;padding:24px}
 .c{max-width:1400px;margin:0 auto}
